@@ -1,46 +1,34 @@
+import {
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import AppBarStyle from "./Style";
 
-import { AppBar, Box, FormControlLabel, Button, IconButton, MenuItem, Switch, Toolbar, Typography,Menu } from "@mui/material";
-import { useState } from "react";
 
 
-export default function Navbar({title,menuIcon,profile}) {
-  const [auth, setAuth] = useState(true);
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+export default function Navbar({ open,handleDrawerOpen,drawerWidth }) {
+   const AppBar = AppBarStyle(open,drawerWidth);
   return (
-   <> 
-      <Box sx={{ flexGrow: 1 }}>
-      <AppBar component="nav">
+    <>
+     
+      <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
-            size="large"
-            edge="start"
             color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
-            {menuIcon&&menuIcon}
+            <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           {title&&title}
+          <Typography variant="h6" noWrap component="div">
+            Persistent drawer
           </Typography>
-          {profile&&profile}
         </Toolbar>
       </AppBar>
-    </Box>
-
-</>
+    </>
   );
 }
