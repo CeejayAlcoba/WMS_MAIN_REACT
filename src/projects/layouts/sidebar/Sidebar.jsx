@@ -15,8 +15,9 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import DrawerHeaderStyle from "./Style";
+import PropTypes from 'prop-types';
+ function Sidebar({ open, handleDrawerClose, drawerWidth}) {
 
-export default function Sidebar({ open, handleDrawerClose, drawerWidth }) {
   const DrawerHeader = DrawerHeaderStyle;
   const theme = useTheme();
   return (
@@ -75,3 +76,7 @@ export default function Sidebar({ open, handleDrawerClose, drawerWidth }) {
     </Box>
   );
 }
+Sidebar.propTypes = {
+    window: PropTypes.func,
+};
+export default Sidebar
