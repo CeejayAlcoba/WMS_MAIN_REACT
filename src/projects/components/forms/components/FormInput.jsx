@@ -1,6 +1,6 @@
 import { FormControl, TextField } from "@mui/material";
 
-export default function FormInput({label,name,value,onChange,sx,isRequired,type}){
+export default function FormInput({label,name,value,onChange,className,isRequired,type}){
 
     return(
     <>
@@ -11,8 +11,8 @@ export default function FormInput({label,name,value,onChange,sx,isRequired,type}
             name={name&&name}
             value={value&&value}
             onChange={onChange&&onChange}
-            sx={sx&&sx}
             required={isRequired?isRequired:false}
+            className={className&&className}
           />
         </FormControl>
     </>

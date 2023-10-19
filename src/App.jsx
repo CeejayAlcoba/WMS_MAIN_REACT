@@ -1,20 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import LoginIndex from './projects/pages/login/pages'
-import Navbar from './projects/layouts/navbar/Navbar'
-import { BiMenu  } from 'react-icons/bi';
-import ResponsiveDrawer from './projects/layouts/sidebar/Sidebar'
-import PageLayout from './projects/layouts/PageLayout/PageLayout'
 
+
+import AppRoutes from './projects/routes';
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.bundle.min";
 function App() {
-
+  
   return (
-    <>
-    
-    <PageLayout/>
+    <div className='app'>
+    <AppRoutes/>
+    {/* <PageLayout/> */}
     {/* <LoginIndex/> */}
-    </>
+    </div>
   )
 }
 

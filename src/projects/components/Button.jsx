@@ -2,14 +2,14 @@ import { Button as MUIButton} from "@mui/material";
 import Progress from "./Progress";
 
 
-export default function Button({type,variant,color,label,sx,isLoading,startIcon}){
+export default function Button({type,variant,color,label,className,isLoading,startIcon}){
     return (
         <>
          <MUIButton
           type={type&&type}
           variant={variant?variant:"contained"}
           color={color?color:"primary"}
-          sx={sx&&sx}
+          className={className&&className}
           disabled ={isLoading}
           startIcon={isLoading?<Progress size={20}/>: startIcon&&startIcon}
         >

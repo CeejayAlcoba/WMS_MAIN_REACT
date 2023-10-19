@@ -1,11 +1,11 @@
 import { Alert as MUIAlert } from "@mui/material";
 
-export default function Alert({ children, variant, severity,sx }) {
+export default function Alert({ children, variant, severity,className }) {
   return (
     <MUIAlert
       variant={variant ? variant : "outlined"}
       severity={severity ? severity : "success"}
-      sx={sx&&sx}
+      className={className&&className}
     >
       {children}
     </MUIAlert>
