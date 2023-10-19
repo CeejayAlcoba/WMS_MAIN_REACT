@@ -5,7 +5,7 @@ export default function SideDesign() {
     const { windowWidth } = useWindowWidth();
     return (
         <>
-            {windowWidth > 768 && <img src={truckDelivery} alt="truck-delivery" className="w-50" />}
+             <img src={truckDelivery} alt="truck-delivery" className="w-50" />
         </>
     )
 }
