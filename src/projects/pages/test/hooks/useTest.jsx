@@ -6,7 +6,6 @@ export default function useTest(){
     useEffect(() => {
         var controller = new AbortController();
         handleGetFakeAPI(1,controller.signal);
-         console.log('render')
         return ()=>{
             controller.abort();
         }

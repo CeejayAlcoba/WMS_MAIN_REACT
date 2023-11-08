@@ -1,11 +1,11 @@
 import { useState } from "react";
+import useToken from "./useToken";
 
 export default function useUser(){
-    const token = localStorage.getItem("token");
-    
-    const [user,setUser]=useState(token);
+    const {decodedToken}=useToken();
+    const [user,setUser]=useState(decodedToken);
     const handleSetUser=(value)=>{
-        setUser(value??token);
+        setUser(value??decodedToken);
     }
 
     return {user,handleSetUser}

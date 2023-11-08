@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
+import useWindowWidth from "../../../hooks/useWindowWidth";
 
-export default function usePageLayout(windowWidth){
+export default function usePageLayout(){
+  const { windowWidth } = useWindowWidth();
     const [open, setOpen] = useState();
-  useEffect(() => {
-    
-      setOpen(windowWidth > 768?true:false);
-  
-  }, [windowWidth]); 
 
+    useEffect(()=>{
+      const isOpen = windowWidth > 768 ? true:false;
+      setOpen(isOpen)
+      console.log(windowWidth)
+    },[windowWidth])
   const handleDrawerOpen = () => {
     setOpen(true);
   };

@@ -6,11 +6,10 @@ import Sidebar from "../sidebar/Sidebar";
 import { Typography } from "@mui/material";
 import MainStyle from "./styles/Style";
 import usePageLayout from "./hooks/usePageLayout";
-import useWindowWidth from "../../hooks/useWindowWidth";
 
 function PageLayout({ children }) {
-  const { windowWidth } = useWindowWidth();
-  const { open, handleDrawerOpen, handleDrawerClose } = usePageLayout(windowWidth);
+
+  const { open, handleDrawerOpen, handleDrawerClose } = usePageLayout();
   const drawerWidth = 240;
   const Main = MainStyle(drawerWidth);
 
