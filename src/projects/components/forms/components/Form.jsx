@@ -1,15 +1,15 @@
 import Button from "../../Button";
 
-export default function Form({ onSubmit, children,className,footer,header }) {
+export default function Form({ onSubmit, children,className,footerElement,headerElement }) {
   return (
     <>
       <form
-        className={className&&className}
-        onSubmit={onSubmit&&onSubmit}
+        className={className}
+        onSubmit={onSubmit}
       >
-        {header&&header}
+        {headerElement}
         {children}
-        {footer&&footer}
+        {footerElement}
       </form>
     </>
   );

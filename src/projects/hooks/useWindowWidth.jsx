@@ -5,7 +5,6 @@ export default function useWindowWidth() {
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
-            console.log(windowWidth)
         };
 
         // Add event listener to listen for window resize
@@ -15,7 +14,7 @@ export default function useWindowWidth() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [window.innerWidth]);
+    }, [windowWidth]);
 
     return{windowWidth}
 }

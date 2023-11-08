@@ -20,10 +20,10 @@ export default function LoginForm ({handleSetUser}){
           (e) => handleSetUser(formData)
           // handleLogin(e, formData,handleFormMessage)
         }
-        className="flex-column align-self-center container card p-5 card w-75 h-100"
+        className="flex-column align-self-center container card p-5 card w-50 h-75"
        
-        header={<Header/>}
-        footer={
+        headerElement={<Header/>}
+        footerElement={
           <Footer
             errorMessage={formData.error}
             buttonClassName={"mb-3"}

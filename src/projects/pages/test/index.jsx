@@ -1,36 +1,24 @@
 import { useState } from "react";
 import useURLSearchParams from "../../hooks/useURLSearhParams";
 import { useEffect } from "react";
-import useGetApi from "../../services/hooks/useGetApi";
-import { getFakeApi } from "../../services/apis/FakeApi";
-import { json } from "react-router-dom";
+import { useGetFakeApi } from "../../services/apis/FakeAPI/GET_FAKE_API";
+import useTest from "./hooks/useTest";
 
-export default function Test() {
+export default function Test({user}) {
+    const {data}= useTest();
+    const { urlSearchParams,getSearchParam, handleUpdateSearchParam } = useURLSearchParams();
     const [searchData, setSearchData] = useState({
-        name: "",
-        lastname: "",
+        name: getSearchParam("name",""),
+        lastname: getSearchParam("lastname",""),
     });
-    const { getSearchParam, handleUpdateSearchParam } = useURLSearchParams();
-    const { response, error, loading, handleGetApi, handleCancelApi } = useGetApi();
 
-    useEffect(() => {
-        setSearchData({
-            name: getSearchParam("name") ?? "",
-            lastname: getSearchParam("lastname") ?? ""
-        })
-
-        /// test get api
-        handleGetApi(getFakeApi(1));
-
-        return ()=>{
-        
-        }
-
-    }, [])
+   
 
     return (
         <>
-        {JSON.stringify(response) }
+        { JSON.stringify(data)}
+        {urlSearchParams}
+        <div className="border border-dark">{JSON.stringify(user)}</div>
             <input
                 type="text"
                 placeholder="Name"

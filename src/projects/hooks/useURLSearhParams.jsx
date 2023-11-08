@@ -5,9 +5,10 @@ export default function useURLSearchParams() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const getSearchParam = (key) => {
+    const urlSearchParams = new URLSearchParams(location.search).toString();
+    const getSearchParam = (key,defaultValue) => {
         const searchParams = new URLSearchParams(location.search);
-        return searchParams.get(key);
+        return searchParams.get(key)||defaultValue;
     }
 
     const handleUpdateSearchParam = (data) => {
@@ -19,5 +20,5 @@ export default function useURLSearchParams() {
         navigate(newLocation);
     }
 
-    return { getSearchParam, handleUpdateSearchParam }
+    return {urlSearchParams, getSearchParam, handleUpdateSearchParam }
 }
