@@ -1,7 +1,6 @@
 import { useState } from "react";
 import useURLSearchParams from "../../hooks/useURLSearhParams";
 import useTest from "./__hooks__/useTest";
-import Test2 from "./test2";
 
 export default function Test({ user }) {
   const { data } = useTest();
