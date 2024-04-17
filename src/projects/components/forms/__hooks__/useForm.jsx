@@ -9,16 +9,15 @@ export default function useForm(initFormData) {
 
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ 
-      ...formData, 
-      data: { ...formData.data, [name]: value } });
+    setFormData({
+      ...formData,
+      data: { ...formData.data, [name]: value },
+    });
   };
 
   const handleFormMessage = (message, isSuccess) => {
-    if(isSuccess)
-      setFormData({ ...formData, success: message,error:"" });
-    else
-      setFormData({ ...formData,success:"", error: message });
+    if (isSuccess) setFormData({ ...formData, success: message, error: "" });
+    else setFormData({ ...formData, success: "", error: message });
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -26,5 +25,10 @@ export default function useForm(initFormData) {
     console.log(formData);
   };
 
-  return { formData, handleFormMessage, handleFormDataChange, handleFormSubmit };
+  return {
+    formData,
+    handleFormMessage,
+    handleFormDataChange,
+    handleFormSubmit,
+  };
 }

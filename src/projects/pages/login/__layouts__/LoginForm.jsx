@@ -1,17 +1,17 @@
-import Form from "../../../components/forms/components/Form";
-import FormInput from "../../../components/forms/components/FormInput";
-import useForm from "../../../components/forms/hooks/useForm";
-import useLoginForm from "../hooks/useLoginForm";
-import afreightLogo from '../../../../assets/afreight-logo.png'
+import Form from "../../../components/forms/__components__/Form";
+import FormInput from "../../../components/forms/__components__/FormInput";
+import useForm from "../../../components/forms/__hooks__/useForm";
+import useLoginForm from "../__hooks__/useLoginForm";
+import afreightLogo from "../../../../assets/afreight-logo.png";
 import Button from "../../../components/Button";
 
-
-export default function LoginForm ({handleSetUser}){
+export default function LoginForm({ handleSetUser }) {
   const initFormData = {
     username: "",
     password: "",
   };
-  const { formData, handleFormDataChange,handleFormMessage } = useForm(initFormData);
+  const { formData, handleFormDataChange, handleFormMessage } =
+    useForm(initFormData);
   const { handleLogin } = useLoginForm();
   return (
     <div className="w-100 p-5 d-flex">
@@ -21,8 +21,7 @@ export default function LoginForm ({handleSetUser}){
           // handleLogin(e, formData,handleFormMessage)
         }
         className="flex-column align-self-center container card p-5 card w-50 h-75"
-       
-        headerElement={<Header/>}
+        headerElement={<Header />}
         footerElement={
           <Footer
             errorMessage={formData.error}
@@ -51,21 +50,19 @@ export default function LoginForm ({handleSetUser}){
       </Form>
     </div>
   );
-};
-
-function Header(){
-  return (
-      <center>
-         
-     <img src={afreightLogo} alt='afreight-logo' className='w-75 mb-2'/>
-      </center>
-  )
 }
 
- 
-function Footer({errorMessage,buttonClassName,alertClassName}){
-  return(
-      <>
+function Header() {
+  return (
+    <center>
+      <img src={afreightLogo} alt="afreight-logo" className="w-75 mb-2" />
+    </center>
+  );
+}
+
+function Footer({ errorMessage, buttonClassName, alertClassName }) {
+  return (
+    <>
       {errorMessage && (
         <Alert severity={"error"} className={alertClassName}>
           {errorMessage}
@@ -79,5 +76,5 @@ function Footer({errorMessage,buttonClassName,alertClassName}){
         className={buttonClassName}
       />
     </>
-  )
+  );
 }

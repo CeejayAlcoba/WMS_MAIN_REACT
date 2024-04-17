@@ -1,14 +1,15 @@
-import axiosInstance from "../../configuration/AxiosInstance";
-import useAPI from "../../hooks/useAPI";
+import axiosInstance from "../../__configuration__/AxiosInstance";
+import useAPI from "../../__hooks__/useAPI";
 
 const endPoint = "/todos";
 
 function useGetFakeApi() {
   const { data, isLoading, error, setData, setError, setIsloading } = useAPI();
 
-  const handleGetFakeAPI = async(id,signal) => {
+  const handleGetFakeAPI = async (id, signal) => {
     setIsloading(true);
-    await axiosInstance().get(`${endPoint}/${id}`,{signal:signal})
+    await axiosInstance()
+      .get(`${endPoint}/${id}`, { signal: signal })
       .then((res) => {
         setData(res?.data);
         setIsloading(false);
@@ -19,7 +20,7 @@ function useGetFakeApi() {
       });
   };
 
-  return {data,error,isLoading,handleGetFakeAPI}
+  return { data, error, isLoading, handleGetFakeAPI };
 }
 
 export { useGetFakeApi };

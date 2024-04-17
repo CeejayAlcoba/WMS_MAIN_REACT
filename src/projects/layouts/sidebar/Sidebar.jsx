@@ -14,10 +14,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import DrawerHeaderStyle from "./Style";
-import PropTypes from 'prop-types';
- function Sidebar({ open, handleDrawerClose, drawerWidth}) {
-
+import DrawerHeaderStyle from "./__styles__/Style";
+import PropTypes from "prop-types";
+function Sidebar({ open, handleDrawerClose, drawerWidth }) {
   const DrawerHeader = DrawerHeaderStyle;
   const theme = useTheme();
   return (
@@ -77,6 +76,6 @@ import PropTypes from 'prop-types';
   );
 }
 Sidebar.propTypes = {
-    window: PropTypes.func,
+  window: PropTypes.func,
 };
-export default Sidebar
+export default Sidebar;

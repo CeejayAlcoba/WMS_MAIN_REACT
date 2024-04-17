@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "../pages/login";
-import useRoute from "./hooks/useRoute";
 import PageLayout from "../layouts/pageLayout";
 import InvalidPage from "../pages/invalid";
-import { RouteModel } from "./models/routeModel";
+import RouteModel from "./__models__/routeModel";
 import { createElement } from "react";
 import useUser from "../hooks/useUser";
 
